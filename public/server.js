@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const PORT = 3000;
+const notes = [];
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -16,7 +17,7 @@ app.get("/notes", (req, res) => {
 
 // GET /api/notes - Should read the db.json file and return all saved notes as JSON.
 app.get("/api/notes", (req, res) => {
-    return res.json(characters);
+    return res.json(notes);
 });
 // POST /api/notes - Should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client.
 app.post("/api/notes", (req, res) => {
